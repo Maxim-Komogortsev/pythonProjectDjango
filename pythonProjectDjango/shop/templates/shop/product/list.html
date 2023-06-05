@@ -14,3 +14,15 @@
         </li>
     </ul>
 </div>
+
+<div id="main">
+    <h1>{% if category %}{{category.name}} {% else %} Все товары {% endif %}</h1>
+    {% for p in products %}
+        <div  class="item">
+            <a href="{{ p.get_absolute_url }}">{{ p.name }></a>
+            <a href="{{ p.get_absolute_url }}">
+                <img src="{% if p.img %} {{p.img.url}} {% else %} {% static 'img/noimage.png' %} {% endif %}">
+            </a>
+            <p>{{p.price}} руб.</p>
+        </div>
+</div>

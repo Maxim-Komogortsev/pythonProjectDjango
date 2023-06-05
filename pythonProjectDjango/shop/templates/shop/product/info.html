@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
 
-</body>
-</html>
+{% if category %} {{category.name}} {% else %} Все категории{% endif %}
+
+{% endblock %}
+{% block content %}
+
+     <div  class="product-info">
+            <a href="{{ product.get_absolute_url }}">{{ product.name }></a>
+            <a href="{{ product.get_absolute_url }}">
+                <img src="{% if product.img %} {{product.img.url}} {% else %} {% static 'img/noimage.png' %} {% endif %}">
+            </a>
+            <p class="price">{{product.price}} руб.</p>
+         <div class="description">
+             {{product.description}}
+         </div>
+     </div>
+
+{% endblock %}
