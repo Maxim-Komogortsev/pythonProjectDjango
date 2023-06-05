@@ -1,0 +1,16 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% if category %} {{ category.name }} {% else %} Товары {% endif %}
+{% block content %}
+<div id="sidebar">
+    <h2>Категории</h2>
+    <ul>
+       <li {% if not category %} class="selected" {% endif %}>
+            <a href="{% shop:show_product_list %}">Все</a>
+       </li>
+        {% for c in categories %}
+        <li {% if category.slug == c.slug %} class="selected" {% endif %}>
+            <a href="{{ c.get_absolute_url }}" >{{ c.name }}</a>
+        </li>
+    </ul>
+</div>

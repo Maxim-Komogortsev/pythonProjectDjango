@@ -1,0 +1,16 @@
+{% extends 'skynet/main.html' %}
+
+{% block head %}
+        <h1>Welcome to My Website</h1>
+        {% if access == 1 %}
+        <h3>Доступ открыт</h3>
+        {% else %}
+        <h3>Доступ закрыт</h3>
+        {% endif %}
+
+
+{% endblock %}
+
+{% block title %}
+        <title>website</title>
+{% endblock %}
